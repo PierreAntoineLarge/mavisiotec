@@ -1,0 +1,319 @@
+@use "../../../styles/vars" as *;
+
+// max-width
+.media-page,
+.company-wrapper {
+  padding: 1rem;
+  max-width: 600px;
+
+  .img-and-genre {
+    max-width: 600px;
+  }
+}
+@media (min-width: $mqxl) {
+  .media-page {
+    max-width: unset;
+  }
+}
+
+//
+
+.media-page {
+  text-align: center;
+  margin: 0 auto;
+  
+  .img-and-genre {
+    max-width: 600px;
+    margin-top: 1rem;
+    img {
+      width: 100%;
+    }
+    .no-image {
+      background-color: $bgGradientFallback;
+      background: $bgGradient;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 5rem;
+      border-radius: 6px;
+
+      @media (min-width: $mqxl) {
+        width: 420px;
+
+      }
+      
+      
+      p {
+        width: min-content;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .title-and-buttons {
+    margin-top: 1rem;
+  }
+  .sinopsis {
+    text-align: left;
+    margin-top: 1rem;
+    }
+
+  @media (min-width: $mqxl) {
+  max-width: 1070px;
+
+    .media-grid {
+      display: grid;
+      gap: 0 2rem;
+      justify-content: space-between;
+      grid-template-columns: auto auto;
+      grid-template-areas:  
+      "img-and-genre title-and-buttons"
+      "img-and-genre sinopsis";
+
+      .img-and-genre {
+        grid-area: img-and-genre;
+      }
+
+      .title-and-buttons {
+        grid-area: title-and-buttons ;
+
+        h1 {
+          line-height: 1;
+        }
+        .list-buttons {
+          margin: 1.5rem 0 0;
+        }
+      }
+      
+      .sinopsis {
+        grid-area: sinopsis;
+      }
+    }
+  }
+  
+  .list-button--selected {
+    color: $linkTextColor;
+    font-size: .875rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.16);
+    transition: background-color 100ms;
+    border: none;
+    border-radius: 16px;
+    padding: .5rem 1.5rem;
+    background-color: rgb(33, 228, 26);
+  }
+
+  .favorite-button--selected {
+    color: $linkTextColor;
+    font-size: .875rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.16);
+    transition: background-color 100ms;
+    border: none;
+    border-radius: 16px;
+    padding: .5rem 1.5rem;
+    background-color: rgb(33, 228, 26);
+  }
+
+    
+    // buttons
+    
+  
+  .list-button,
+  .favorite-button {
+    color: $linkTextColor;
+    font-size: .875rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.16);
+    transition: background-color 100ms;
+    border: none;
+    border-radius: 16px;
+    padding: .5rem 1.5rem;
+  
+    &:focus,
+    &:hover {
+    background: rgba(255, 255, 255, 0.32);
+    }
+  }
+  
+  .list-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  
+  //
+  
+  
+  
+  .favorite-and-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+  
+    // .favorite-button {
+      
+    // }
+
+    .status {
+      position: relative;
+      font-size: .875rem;
+      font-weight: 700;
+
+      &::before {
+        background-color: yellow;
+        position: absolute;
+        left: -.8rem;
+        display: block;
+        content: '';
+        width: .3rem;
+        height: 100%;
+      }
+
+      &.status--Released {
+        // display: none;
+        &::before {
+          background-color: green;
+        }
+      }
+      &.status--Rumored {
+        &::before {
+          background-color: lightblue;
+        }
+      }
+      &.status--Planned {
+        &::before {
+          background-color: orange;
+        }
+      }
+      &.status--Canceled {
+        &::before {
+          background-color: red;
+        }
+      }
+    }
+  
+  }
+  
+  .genre-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+  
+    .genre--item {
+      color: #BABABA;
+      font-size: .875rem;
+      font-weight: 700;
+      max-width: max-content;
+    }
+  }
+  
+  .company-wrapper {
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: min-content;
+    grid-auto-flow: column;
+    grid-auto-columns: 134px;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none; /* For Firefox */
+
+    // &::-webkit-scrollbar {
+    //   display: none;
+    //   width: 0;
+    // }
+    &::-webkit-scrollbar {
+      // display: none;
+      width: 0;
+      @media (max-width: $mqxl) {
+        grid-auto-columns: 170px;
+        display: none;
+      }
+    }
+    // ! new code
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+     
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $buttonsBgColorHover; 
+      border-radius: 10px;
+    }
+
+    @media (min-width: $mqxs) {
+      grid-auto-columns: 170px;
+    }
+
+    @media (min-width: $mqxs) {
+      grid-auto-columns: 170px;
+    }
+  
+    .company-item {
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+      font-weight: 700;
+      padding: .5rem;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      min-height: 100%;
+
+      p {
+        margin-bottom: .5rem;
+      }
+
+      img {
+        display: block;
+        max-height: 150px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+
+    .no-image {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 6px;
+      
+      p {
+        width: min-content;
+        text-align: center;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  .saga {
+    background-color: $secondMainBgColor;
+    border-radius: 10px;
+    margin: 4rem;
+    padding: 2rem;
+    max-width: 800px;
+  
+    @media (min-width: $mqxl) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+

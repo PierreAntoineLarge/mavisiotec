@@ -1,0 +1,53 @@
+//  generic styling for my body and other simple element selectors where we can set up some general styling and let the cascade take care of things.
+
+@use 'reset';
+@use 'vars';
+@forward 'general-spacing';
+
+html {
+  // scroll-behavior: smooth;
+  // scroll-padding-bottom: 100vh;
+}
+
+body {
+  font-family: 'Roobert', sans-serif;
+  background: vars.$mainBgColor;
+  // font-size: 1.25rem;
+}
+
+// ==== headings, labels, strongs, and captions
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+strong {
+  font-weight: 700;
+}
+p {
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

@@ -1,0 +1,48 @@
+@use "../../../../styles/vars" as *;
+
+.menu-toggle-button {
+  display: none;
+  background: transparent;
+  margin-left: .3rem;
+  border: none;
+
+  @media (max-width: $mqxl) {
+    display: block;
+  }
+
+  .menu-toggle-icon {
+    width: 1.5rem;
+    height: 1.75rem;
+    fill: $linkTextColor;
+  
+    &:focus,
+    &:hover {
+      fill: $linkTextHover;
+    }
+  }
+  
+  & .line {
+    transition: y 100ms ease-in 100ms, rotate 100ms ease-in, opacity 0ms 100ms;
+    transform-origin: center;
+  }
+
+  &[aria-expanded="true"] .line {
+    transition: y 100ms ease-in, rotate 100ms ease-in 100ms, opacity 0ms 100ms;
+  }
+  
+  &[aria-expanded="true"] :is(.top, .bottom) {
+    y: 45;
+  }
+  
+  &[aria-expanded="true"] .top {
+    rotate: 45deg;
+  }
+  
+  &[aria-expanded="true"] .middle {
+    opacity: 0;
+  }
+  
+  &[aria-expanded="true"] .bottom {
+    rotate: -45deg;
+  }
+}

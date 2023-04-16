@@ -1,0 +1,137 @@
+@use "../../../../styles/vars" as *;
+
+.profile-user-button {
+  // overwriting the default styles
+  background: none;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  border: none;
+
+  // the padding unit correspond to the padding added to the search button div, this way the box
+  // for the profile user button will be at the same position of the search box
+  padding: .255rem 0;
+  margin-left: 1rem;
+
+  cursor: pointer;
+  position: relative;
+
+  .profile-user-icon {
+    display: block;
+    width: 2.25rem;
+    height: 1.5rem;
+    fill: $linkTextColor;
+  
+    &:focus,
+    &:hover {
+      fill: $linkTextHover;
+    }
+  }
+
+  // .nav-list-link {
+  //   display: flex;
+
+  //   &:focus,
+  //   &:hover {
+  //     color: $linkTextHover;
+  //   }
+  // }
+
+  .profile-user-button-list {
+    background: $headerBgColor;
+    width: max-content;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 7px;
+    box-shadow: 0 20px 30px #0000001a, 0 4px 4px #00000026;
+
+    position: absolute;
+    z-index: 0;
+    top: calc(100% + 1.6rem);
+    right: 0;
+    transform: translateY(-108%);
+    opacity: 0;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    pointer-events: none;
+
+    &:before {
+      height: 1.3rem;
+      left: 0;
+      right: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 100%;
+    }
+    li {
+      margin-left: 0;
+      opacity: 0;
+      position: relative;
+      transition: transform 0.25s, opacity 0.25s;
+      transform: translateY(40px);
+
+      &:focus,
+      &:hover {
+        background-color: $headerBgColorHover;
+        color: hsla(0, 0%, 100%);
+        border-radius: 5px;
+      }
+
+      .nav-list-link {
+        display: flex;
+        padding: 0.75em;
+        line-height: 1.5;
+      }
+
+      &:nth-of-type(1) {
+        transition-delay: 0.13s;
+      }
+      &:nth-of-type(2) {
+        transition-delay: 0.15s;
+      }
+
+      // when the user is not logged
+      &.logged {
+        display: none;
+      }
+    }
+
+    // when the user is logged
+    &.profile-user-button-list--logged {
+      & li {
+        &:not(.logged) {
+          display: none;
+        }
+        &.logged {
+          display: block;
+
+          & button {
+            background: none;
+            color: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            border: none;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // todo if I have time focus and hover goes away when I click in another button
+  // &:focus .profile-user-button-list,
+  // &:hover .profile-user-button-list 
+  &.profile-user-button--open .profile-user-button-list {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  // todo if I have time focus and hover goes away when I click in another button
+  // &:focus .profile-user-button-list li,
+  // &:hover .profile-user-button-list li 
+  &.profile-user-button--open .profile-user-button-list li {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,21 @@
+.page-not-found{
+  padding: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  h1{
+    margin: 2rem;
+    width: auto;
+    height: 2rem;
+    
+    .hi{
+      animation: cameleonize 1s infinite ;
+    }
+  }
+  p{
+    margin-bottom: 3rem;
+  }
+
+}

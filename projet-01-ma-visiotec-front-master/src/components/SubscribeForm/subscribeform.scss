@@ -1,0 +1,111 @@
+@use "../../styles/vars" as *;
+
+.sign-up-wrapper {
+  margin: 0 auto;
+  max-width: 350px;
+  
+  .home-link {
+    display: inline-block;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .sign-up-form {
+    width: 100%;
+    margin-top: 2rem;
+
+    .first-password-form {
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      .fa-solid {
+        position: absolute;
+        top: 14%;
+        right: 5px;
+        width: 2.25em;
+        height: 1.3rem;
+        fill: black;
+        color: black;
+      
+        &:focus,
+        &:hover {
+          fill: black;
+        }
+      }
+    }
+
+    .second-password-form {
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      .fa-solid {
+        position: absolute;
+        top: 14%;
+        right: 5px;
+        width: 2.25em;
+        height: 1.3rem;
+        fill: black;
+        color: black;
+      
+        &:focus,
+        &:hover {
+          fill: black;
+        }
+      }
+    }
+    
+    input,
+    button {
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+    }
+    
+    input {
+      min-width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 10px;
+
+      &:focus {
+        outline: 4px solid $buttonsBgColorHover;
+      }
+
+      &::placeholder {
+        opacity: .35;
+      }
+      &:focus::placeholder {
+        opacity: .65;
+      }
+    }
+  
+    .sign-up-button {
+      width: 60%;
+      margin: 1.5rem 20%;
+      background: $headerBgColor;
+      color: $linkTextColor;
+      border: 0;
+      border-radius: 50px;
+      padding: .75em 2em;
+      line-height: 1;
+      box-shadow: 0.25rem 0.25rem 1rem rgb(0 0 0 / 0.15);
+      transform: scale(1);
+      transition: background-color 85ms, color 85ms, transform 85ms;
+  
+      
+      &:focus,
+      &:hover {
+        transform: scale(1.1);
+        background-color: #630081;
+        color: $linkTextHover;
+      }
+    } 
+  }
+  
+}

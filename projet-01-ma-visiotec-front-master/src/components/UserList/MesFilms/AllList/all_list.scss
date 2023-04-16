@@ -1,0 +1,234 @@
+// @use "../../../../styles/vars" as *;
+
+// .myList {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+
+//   &--item {
+//     background-color: $bgGradientFallback;
+//     background: $bgGradient;
+//     width: 300px;
+//     margin: 2px;
+//     margin-bottom: 9px;
+//     text-align: center;
+//     padding: 20px;
+//     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+//     border-radius: 10px;
+//     transition: all 0.3s ease-in-out;
+//     position: relative;
+
+//     &:hover {
+//       transform: translateY(-1px);
+//       box-shadow: 0 8px 12px rgba(121, 23, 56, 0.767);
+//     }
+  
+//     a {
+//       display: block;
+//       text-decoration: none;
+//       color: #333;
+
+//       img {
+//         width: 100%;
+//       }
+//     }
+
+//     .myList--data{
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-between;
+//       margin-bottom: 10px;
+
+//       h3 {
+//         font-size: 1.25rem;
+//         font-weight: bold;
+//         margin-bottom: 10px;
+//       }
+  
+//       time {
+//         font-size: 1.10rem;
+//         font-weight: bold;
+//         margin-bottom: 10px;
+//         line-height: 1.5;
+//       }
+//     }
+
+//     .myList--status {
+//       display: flex;
+//       margin-bottom: 20px;
+//       justify-content: space-between;
+
+  
+//       .statusButton {
+//         background: #fff;
+//         border: 1px solid #333;
+//         padding: 5px 10px;
+//         border-radius: 5px;
+//         margin-right: 10px;
+//         transition: all 0.3s ease-in-out;
+  
+//         &:hover {
+//           background: #3cb90a;
+//           color: #3b1048;
+//         }
+  
+//         &.selected {
+//           background: #3cb90a;
+//           color: #3b1048;
+//         }
+//       }
+  
+//       .myList--favorite {
+//         i {
+//           font-size: 1.5rem;
+//           color: #e1f101;
+//           margin-left: 10px;
+//           cursor: pointer;
+//         }
+//       }
+//     }
+  
+//     .myList--validation {
+//       position: relative;
+//       margin-bottom: 20px;
+        
+//       i {
+//         position: absolute;
+//         left: 0px;
+//         top: 0px;
+//         font-size: 24px;
+//         cursor: pointer;
+//         color: #fff;
+
+//         &:hover {
+//           color: #46e546;
+//         }
+//       }
+
+//     }
+  
+    
+//     .myList--delete {
+//       position: absolute;
+//       right: 24px;
+//       bottom: 22px;
+    
+//       i {
+//         color:#fff;
+
+//         &:hover {
+//           color: red;
+//           animation: shake 0.5s ease-in-out infinite;
+//         }
+        
+//         @keyframes shake {
+//           0% { transform: translate(1px, 1px) rotate(0deg); }
+//           10% { transform: translate(-1px, -2px) rotate(-1deg); }
+//           20% { transform: translate(-3px, 0px) rotate(1deg); }
+//           30% { transform: translate(3px, 2px) rotate(0deg); }
+//           40% { transform: translate(1px, -1px) rotate(1deg); }
+//           50% { transform: translate(-1px, 2px) rotate(-1deg); }
+//           60% { transform: translate(-3px, 1px) rotate(0deg); }
+//           70% { transform: translate(3px, 1px) rotate(-1deg); }
+//           80% { transform: translate(-1px, -1px) rotate(1deg); }
+//           90% { transform: translate(1px, 2px) rotate(0deg); }
+//           100% { transform: translate(1px, -2px) rotate(-1deg); }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (min-width: 600px){
+//   .myList--item {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     align-content: flex-start;
+//     margin-bottom: 20px;
+
+//     a{
+//       width: 30%;
+//     }
+
+//     img {
+//       width: 30%;
+//     }
+    
+//     .myList--data {
+//       text-align: initial;
+//       display: flex;
+//       margin-left: 4px;
+//       width: 20%;
+      
+//       flex-direction: column;
+//       justify-content: flex-start;
+//       align-items: baseline;
+      
+      
+//       h3 {
+        
+//         font-size: 18px;
+//       }
+      
+//       time {
+//         font-size: 14px;
+//       }
+//     }
+    
+//     form{
+//       width: 50%;
+//     }
+
+//     .myList--status {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       width: 70%;
+//       margin-bottom: 65px;
+//       margin-top: 40px;
+      
+//       .statusButton {
+//         width: 30%;
+//         height: 40px;
+//         border-radius: 5px;
+//         background-color: #e6e6e6;
+//         color: #333;
+//         font-size: 14px;
+//         text-align: center;
+//       }
+      
+//       .selected {
+//         background-color: #333;
+//         color: #fff;
+//       }
+      
+//       .myList--favorite {
+//         width: 10%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//       }
+//     }
+    
+//     .myList--validation {
+      
+
+//       i {
+//       position: absolute;
+//       bottom: 12px;
+//       font-size: 2rem;
+//       }
+//     }
+
+//     .myList--delete{
+//         position: absolute;
+//         bottom: 13px;
+//         left: 65%;
+
+//       i {
+//         font-size: 2rem;
+//       }
+//     } 
+//   }
+// }

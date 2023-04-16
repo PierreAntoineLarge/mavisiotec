@@ -1,0 +1,82 @@
+@use "../../../styles/vars" as *;
+
+
+.mySeries--container {
+  text-align: center;
+  max-width: 656px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  .status--container {
+    display: flex;
+    height: 90px;
+    background-color: $bgGradientFallback;
+    background: $bgGradient;
+    border-radius: 5px;
+    list-style: none;
+    margin-bottom: 1rem;
+    padding: 0;
+
+    .status--item:first-child button {
+      border-left: none;
+    }
+
+    .status--item {
+      width: 25%;
+      height: 100%;
+
+      button {
+        background-color: $bgGradientFallback;
+        background: $bgGradient;
+        border: none;
+
+        border-left: 3px solid rgb(0, 0, 0);
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        height: 100%;
+        color: white;
+
+        &:focus {
+          outline: none;
+          background: $secondMainBgColor;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+
+    h1 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .status--container {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      height: 50px;
+      margin-bottom: 4rem;
+
+      .status--item {
+        width: 33%;
+        height: 100%;
+        margin-bottom: 0.3rem;
+
+        &.fini-item {
+          width: 50%;
+
+          button {
+            border-left: unset;
+          }
+        }
+        
+        &.favoris-item {
+        width: 50%;
+        }
+      }
+    }
+  }
+}

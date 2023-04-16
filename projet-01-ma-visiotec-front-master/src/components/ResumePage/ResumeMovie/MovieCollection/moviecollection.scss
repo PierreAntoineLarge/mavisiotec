@@ -1,0 +1,48 @@
+@use "../../../../styles/vars" as *;
+
+.saga-grid {
+  text-align: center;
+
+  .title-and-text p {
+    margin: 1rem 0 1.5rem;
+  }
+
+  .date {
+    margin-top: 1rem;
+    p {
+      margin-top: rem;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @media (min-width: $mqxl) {
+    text-align: left;
+    display: grid;
+    gap: 0 2rem;
+    grid-template-columns: auto auto;
+    grid-template-areas:  
+    "img title-and-text"
+    "img date";
+
+    img {
+      grid-area: img;
+      max-width: 300px;
+    }
+
+    .title-and-text {
+      grid-area: title-and-text;
+
+      h3 {
+        line-height: 1;
+      }
+    }
+    
+    .date {
+      grid-area: date;
+      margin-top: -10rem;
+      }
+    }
+}

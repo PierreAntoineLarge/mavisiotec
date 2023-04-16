@@ -1,0 +1,58 @@
+.loader-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.671);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+ 
+  .loader {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #0a162800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  img {
+    width: 60%;
+  }
+  }
+} 
+  
+  .loader {
+    animation: rotate 2s linear infinite;
+  }
+  
+  @keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  }
+  
+  .hide {
+    display: none;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: rgb(30, 34, 92);
+    cursor: pointer;
+    }
+    
+    .cross {
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    }

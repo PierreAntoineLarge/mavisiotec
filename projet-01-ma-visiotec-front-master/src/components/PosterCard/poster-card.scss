@@ -1,0 +1,164 @@
+@use "../../styles/vars" as *;
+
+.media-element {
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  
+  .poster {
+    position: relative;
+    
+    .poster-img {
+      display: block;
+      object-fit: cover;
+      border-radius: 6px;
+      width: 100%;
+      height: 240px;
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.582);
+      filter: blur() brightness();
+      -webkit-filter: blur() brightness();
+      transition: filter 100ms;
+
+
+      // todo if I have time alternative for compatibility with older browsers
+      &.blur {
+        filter: blur(5px) brightness(50%);
+        -webkit-filter: blur(5px) brightness(50%);
+      }
+    }
+    .no-image {
+      background-color: $bgGradientFallback;
+      background: $bgGradient;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 240px;
+      padding: 1rem;
+      border-radius: 6px;
+      
+      p {
+        width: min-content;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  button {
+    color: $linkTextColor;
+    cursor: pointer;
+  }
+  
+  .watchlist {
+    top: 5%;
+    left: 7%;
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    border: 1px solid rgb(157, 159, 162);
+    border-radius: 16px;
+    white-space: nowrap;
+    will-change: width;
+    z-index: 2;
+    background-color: rgba(8,17,24,0.7);
+    transition: font-weight 85ms, color 85ms,background-color 85ms,opacity 85ms,width 85ms;
+
+    &:focus,
+    &:hover {
+      color: $linkTextHover;
+      font-weight: 700;
+    }
+    &:hover {
+      border-color: rgba(157, 159, 162, 0);
+      background-color: $buttonsBgColorHover;
+      font-weight: 700;
+    }
+    
+    svg {
+      // centers it
+      // margin-right: -.05rem;
+    }
+
+    .watchlist-text {
+      font-weight: 700;
+      line-height: 1;
+      opacity: 0;
+      transition: opacity ease-in-out 100ms;
+      font-size: .85rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+
+    // when the button is clicked open it will be the same as focus/hover
+    &[aria-expanded="true"] {
+      width: max-content;
+
+      .watchlist-text {
+        opacity: 1;
+      }
+    }
+  }
+
+  .watchlist-dropdown {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 80%;
+    
+    .to-see,
+    .watching,
+    .seen-it {
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      font-size: 1rem;
+      text-align: center;
+      font-weight: 700;
+      background-color: rgba(255,255,255,0.16);
+      transition: background-color 100ms,opacity 100ms;
+      border: none;
+      border-radius: 16px;
+      width: 100%;
+      padding: .2rem .85rem;
+
+      &:focus,
+      &:hover {
+      background-color: rgba(255, 255, 255, 0.32);
+      }
+    }
+
+    &.watchlist-dropdown--open {
+      .to-see,
+      .watching,
+      .seen-it {
+        display: block;
+        opacity: 1;
+        pointer-events: unset;
+    }
+  }
+  }
+
+  .title {
+    font-size: .94rem;
+    font-weight: 400;
+    color: #919191;
+    text-align: left;
+    line-height: 1.2;
+    margin-top: .7rem;
+    max-width: 133.33px;
+  }
+
+  &:focus,
+  &:hover {
+    .watchlist {
+      width: max-content;
+    }
+    .watchlist-text {
+      opacity: 1;
+    }
+  }
+}

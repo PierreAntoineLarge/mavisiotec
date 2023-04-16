@@ -1,0 +1,135 @@
+@use "../../../../styles/vars" as *;
+
+.search-button {
+  background: none;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  border: none;
+
+  cursor: pointer;
+  position: relative;
+
+  .search-icon-and-text {
+    display: flex;
+    align-items: center;
+    padding: .25rem 1rem;
+    cursor: pointer;
+    border: .05rem solid $linkTextColor;
+    border-radius: 100px;
+  
+    &:focus,
+    &:hover {
+      border-color: $linkTextHover;
+    }
+
+    @media (max-width: $mqxl) {
+      padding-right: 0;
+      border: none;
+      & p {
+        display: none;
+      }
+    }
+  }
+  
+  .search-button-icon {
+    display: block;
+    width: 2.25em;
+    height: 1.3rem;
+    fill: $linkTextColor;
+  
+    &:focus,
+    &:hover {
+      fill: $linkTextHover;
+    }
+  }
+
+  .nav-list-link {
+    display: flex;
+
+    &:focus,
+    &:hover {
+      color: $linkTextHover;
+    }
+  }
+
+  .search-button-list {
+    background: $headerBgColor;
+    width: max-content;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 7px;
+    box-shadow: 0 20px 30px #0000001a, 0 4px 4px #00000026;
+
+    position: absolute;
+    z-index: 0;
+    top: calc(100% + 1.6rem);
+    right: 0;
+    transform: translateY(-108%);
+    opacity: 0;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    pointer-events: none;
+
+    &:before {
+      height: 1.3rem;
+      left: 0;
+      right: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 100%;
+    }
+
+    li {
+      margin-left: 0;
+      opacity: 0;
+      position: relative;
+      transition: transform 0.25s, opacity 0.25s;
+      transform: translateY(40px);
+
+      &:focus,
+      &:hover {
+        background-color: $headerBgColorHover;
+        color: $linkTextHover;
+        border-radius: 5px;
+      }
+
+      .nav-list-link {
+        display: flex;
+        padding: 0.75em;
+        line-height: 1.5;
+      }
+
+      &:nth-of-type(1) {
+        transition-delay: 0.13s;
+      }
+      &:nth-of-type(2) {
+        transition-delay: 0.15s;
+      }
+      &:nth-of-type(3) {
+        transition-delay: 0.17s;
+      }
+      &:nth-of-type(4) {
+        transition-delay: 0.19s;
+      }
+    }
+  }
+
+  // todo if I have time focus and hover goes away when I click in another button
+  // &:focus .search-button-list,
+  // &:hover .search-button-list 
+  &.search-button--open .search-button-list {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+    // todo if I have time focus and hover goes away when I click in another button
+  // &:focus .search-button-list li,
+  // &:hover .search-button-list li 
+  &.search-button--open .search-button-list li {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+}

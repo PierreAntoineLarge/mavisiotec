@@ -1,0 +1,68 @@
+@use "../../../styles/vars" as *;
+
+
+.first-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  // h1,h2 {
+  //   text-align: center;
+  // }
+    text-align: center;
+
+    .h1-img {
+      max-width: max-content;
+      margin-left: auto;
+      margin-right: auto;
+      // border: 1px solid #fff;
+    }
+
+    .map-marker-img {
+      max-width: 70px;
+      display: block;
+    }
+    .list-text-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: max-content;
+      // border: 1px solid #fff;
+
+      .finger-img {
+        max-width: 50px;
+        display: block;
+      }
+    }
+}
+.media-group.user {
+  grid-template-columns: unset;
+  grid-auto-flow: column;
+  grid-auto-columns: 160px;
+  justify-content: space-between;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: .5rem;
+  scrollbar-width: none; /* For Firefox */
+
+
+  @media (min-width: $mqxl) {
+    grid-auto-columns: 184px;
+
+    .poster-img {
+      height: 300px;
+    }
+  }
+}
+
+.media-group::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+.series-grid {
+  margin: 4rem 0;
+}

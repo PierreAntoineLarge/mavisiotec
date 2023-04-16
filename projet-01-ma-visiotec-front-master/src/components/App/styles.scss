@@ -1,0 +1,6 @@
+@use 'src/styles/vars';
+
+.app {
+  min-height: 100vh;
+  color: vars.$mainTextColor;
+}

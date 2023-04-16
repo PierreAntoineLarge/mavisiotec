@@ -1,0 +1,141 @@
+@use "../../../styles/vars" as *;
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $mqxl) {
+    align-items: unset;
+  }
+
+  .logo-and-nav {
+    display: flex;
+    align-items: center;
+
+    .logo-img{
+      height: 2rem;
+      display: block;
+    }
+  }
+  #styledimg {
+    background-image: url(../../../assets/Logo_Visiotec.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 120px;
+    height: 2rem;
+    // display: block;
+    // object-fit: scale-down;
+    // background-position-x: right;
+    // background-position-y: bottom;
+      @media (max-width: $mqs){
+        background-image: url(../../../assets/Logo_Visiotec_Mini.png);
+        width: 37px;
+      }
+    }
+
+  .icons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+.nav-list {
+  display: flex;
+  align-items: unset;
+
+  //todo transform the underlines into a pseudo element
+  .underlines > * {
+    // deactivated in the mobile menu
+    @media (min-width: $mqxl) {
+      padding: .5rem 0;
+      border-bottom: 0.2rem solid hsl(0, 0%, 100%, 0);
+      transition: border-bottom 250ms;
+
+      &:focus,
+      &:hover {
+        border-bottom: 0.2rem solid  hsl(0, 0%, 100%);
+      }
+
+      &.active {
+        border-bottom: 0.2rem solid  hsl(0, 0%, 100%);
+      }
+    }
+  }
+
+  li {
+    margin-left: 1rem;
+    
+      &:focus,
+      &:hover {
+        color: $linkTextHover;
+      }
+    }
+
+    @media (max-width: $mqxl) {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      padding: 2em 1em;
+      background: $headerBgColor;
+  
+      position: fixed;
+      z-index: 100;
+      top: 4em;
+      right: 0;
+      bottom: 0;
+      left: 65%;
+  
+      transform: translateX(100%);
+      transition: transform 250ms ease-out;
+  
+      & li {
+        margin: 0;
+        &:focus,
+        &:hover {
+          background-color:$headerBgColorHover;
+          border-radius: 5px;
+        }
+  
+        .nav-list-link {
+          display: flex;
+          width: 100%;
+          padding: 1.2rem 1rem;
+        }
+      }
+    }
+
+    
+
+    @media (max-width: $mql) {
+      // padding: 2em 0;
+      left: 57%;
+    }
+
+    @media (max-width: $mqm) {
+      // padding: 2em 0;
+      left: 50%;
+    }
+
+    @media (max-width: $mqs) {
+      // padding: 2em 0;
+      left: 40%;
+    }
+
+    @media (max-width: $mqxs) {
+      // padding: 2em 0;
+      left: 30%;
+    }
+    // opens the mobile menu, the class is added when the user clicks the menu toggle button
+    &.menu-toggle-button--open  {
+      @media (max-width: $mqxl) {
+        transform: translateX(0%);
+      }
+    }
+
+  & > * + * {
+    @media (max-width: $mqxl) {
+      margin-top: 1rem;
+    }
+  }
+}

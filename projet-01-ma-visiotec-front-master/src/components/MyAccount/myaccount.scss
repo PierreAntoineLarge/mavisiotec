@@ -1,0 +1,189 @@
+@use "../../styles/vars" as *;
+
+.my-account-wrapper {
+  margin: 0 auto;
+  max-width: 350px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .my-account-form {
+    width: 100%;
+    margin-top: 2rem;
+
+    // centers all items (we need to unset this in some items below)
+    & * {
+      min-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    //
+
+    .text {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .first-password-form {
+      // we unset previous rules that is not needed here      
+      min-width: unset;
+      margin-left: unset;
+      margin-right: unset;
+      //
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      .fa-solid {
+        // we unset previous rules that is not needed here      
+        min-width: unset;
+        margin-left: unset;
+        margin-right: unset;
+        //
+        position: absolute;
+        top: 14%;
+        right: 5px;
+        width: 2.25em;
+        height: 1.3rem;
+        color: black;
+      }
+    }
+
+    .second-password-form {
+      // we unset previous rules that is not needed here      
+      min-width: unset;
+      margin-left: unset;
+      margin-right: unset;
+      //
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      .fa-solid {
+        // we unset previous rules that is not needed here      
+        min-width: unset;
+        margin-left: unset;
+        margin-right: unset;
+        //
+        position: absolute;
+        top: 14%;
+        right: 5px;
+        width: 2.25em;
+        height: 1.3rem;
+        color: black;
+      }
+    }
+
+    .old-password-form {
+      // we unset previous rules that is not needed here      
+      min-width: unset;
+      margin-left: unset;
+      margin-right: unset;
+      //
+
+      position: relative;
+      margin: 0;
+      padding: 0;
+
+      .fa-solid {
+        // we unset previous rules that is not needed here      
+        min-width: unset;
+        margin-left: unset;
+        margin-right: unset;
+        //
+        position: absolute;
+        top: 14%;
+        right: 5px;
+        width: 2.25em;
+        height: 1.3rem;
+        color: black;
+      }
+    }
+  
+    input,
+    button {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 700;
+      letter-spacing: inherit;
+      line-height: inherit;
+    }
+    
+    input {
+      font-weight: inherit;
+      min-width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 10px;
+
+      &:focus {
+        outline: 4px solid $buttonsBgColorHover;
+      }
+
+      &::placeholder {
+        font-weight: 700;
+        opacity: .35;
+      }
+      &:focus::placeholder {
+        opacity: .65;
+      }
+    }
+  
+    .my-account-button {
+      min-width: unset;
+      margin-left: unset;
+      margin-right: unset;
+
+      width: 60%;
+      margin: 1.5rem 20%;
+      font-weight: 700;
+      background: $headerBgColor;
+      color: $linkTextColor;
+      border: 0;
+      border-radius: 50px;
+      padding: .75em 2em;
+      line-height: 1;
+      box-shadow: 0.25rem 0.25rem 1rem rgb(0 0 0 / 0.15);
+      transform: scale(1);
+      transition: background-color 85ms, color 85ms, transform 85ms;
+  
+      
+      &:focus,
+      &:hover {
+        transform: scale(1.1);
+        background-color: #630081;
+        color: $linkTextHover;
+      }
+    }
+
+    .delete-account {
+      cursor: pointer;
+      border: none;
+      color: $linkTextColor;
+      background-color: transparent;
+      text-decoration: underline;
+      width: 100%;
+    }
+  }
+
+}
+
+.my-account-form-modal {
+
+  .modal-password-form{
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    .fa-solid {
+      position: absolute;
+      top: 14%;
+      right: 5px;
+      width: 2.25em;
+      height: 1.3rem;
+      color: black;
+    }
+  }
+}

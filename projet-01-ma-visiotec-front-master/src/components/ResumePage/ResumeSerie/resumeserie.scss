@@ -1,0 +1,203 @@
+@use "../../../styles/vars" as *;
+
+.media-page.series {
+  padding: 1rem;
+
+  @media (min-width: $mqxl) {
+    .media-grid {
+      grid-template-areas:  
+      "img-and-genre title-and-buttons"
+      "img-and-genre sinopsis"
+      "img-and-genre info";
+    }
+  }
+
+  .list-button--selected {
+    color: $linkTextColor;
+    font-size: .875rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.16);
+    transition: background-color 100ms;
+    border: none;
+    border-radius: 16px;
+    padding: .5rem 1.5rem;
+    background-color: rgb(33, 228, 26);
+  }
+
+  .favorite-button--selected {
+    color: $linkTextColor;
+    font-size: .875rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.16);
+    transition: background-color 100ms;
+    border: none;
+    border-radius: 16px;
+    padding: .5rem 1.5rem;
+    background-color: rgb(33, 228, 26);
+  }
+
+  .info {
+    margin-top: 1rem;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: $mqxl) {
+      & > * + * {
+        margin-top: 1rem;
+      }
+    }
+    .date,
+    .nb-of-seasons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .status {
+    &::before {
+      background-color: yellow;
+    }
+
+    &.status--Ended {
+      &::before {
+        background-color: green;
+      }
+    }
+    &.status--Returning {
+      &::before {
+        background-color: green;
+      }
+    }
+    &.status--Planned {
+      &::before {
+        background-color: orange;
+      }
+    }
+    &.status--Canceled {
+      &::before {
+        background-color: red;
+      }
+    }
+  }
+
+  .season-wrapper {
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: min-content;
+    grid-auto-flow: column;
+    grid-auto-columns: 134px;
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none; /* For Firefox */
+
+    &::-webkit-scrollbar {
+      // display: none;
+      width: 0;
+      @media (max-width: $mqxl) {
+        grid-auto-columns: 170px;
+        display: none;
+      }
+    }
+    // ! new code
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+     
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $buttonsBgColorHover; 
+      border-radius: 10px;
+    }
+
+    @media (min-width: $mqxs) {
+      grid-auto-columns: 175px;
+    }
+    
+    .season-item {
+      display: flex;
+      flex-direction: column;
+      background-color: $bgGradientFallback;
+      background: $bgGradient;
+      color: $mainTextColor;
+      font-weight: 700;
+      padding: .5rem;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      height: 100%;
+
+      img {
+        height: 240px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+    }
+
+    .no-image {
+      border: 2px solid #fff;
+      border-radius: 6px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 240px;
+      padding: 0 1rem;
+      
+      p {
+        width: min-content;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+    }
+  }
+
+}
+
+
+
+//     .status--false{
+//       background-color: green;
+//     }
+//     .status--true{
+//       background-color: yellow;
+//     }
+
+  // .season--container{
+  //   display: flex;
+  // }
+
+//   .creator--container{
+//     display: flex;
+//     flex-wrap: wrap;
+
+//     .creator--item{
+//       max-width: 40%;
+//       margin-right: 1rem;
+
+//       img {
+//         max-width: 100%
+//       }
+//     }
+//   }
+//   .compagnie--container{
+//     display: flex;
+//     flex-wrap: wrap;
+
+//     .compagnie--item{
+//       max-width: 40%;
+//       margin-right: 1rem;
+
+//       img {
+//         max-width: 100%
+//       }
+//     }
+//   }

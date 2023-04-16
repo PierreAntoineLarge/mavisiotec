@@ -1,0 +1,41 @@
+@use "../styles/vars" as *;
+
+// It overwrites the margin: 0; from the reset to the direct childrens of the element without the need to do it en each child individually.
+.flow > * + * {
+  margin-top: 1rem;
+}
+
+main {
+  padding: 1.5rem 0;
+  min-height: 85vh;
+
+  @media (min-width: $mqxl) {
+    padding: 3rem 0;
+  }
+}
+
+.container {
+  padding: 0 1rem;
+
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.wrapper {
+  margin: 2rem 0;
+  padding: 2rem 0;
+
+  @media (min-width: $mqxl) {
+  margin: 3rem 0;
+  padding: 4rem 0;
+  }
+}
+
+.primary-header {
+  padding: 1rem 0;
+}
+
+.primary-footer {
+  padding: 3rem 0;
+}
